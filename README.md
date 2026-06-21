@@ -79,4 +79,8 @@ streamlit run app.py
 2. Truy cập trang web [Streamlit Community Cloud](https://share.streamlit.io/) và đăng nhập bằng tài khoản GitHub của bạn.
 3. Nhấp vào nút **New app**.
 4. Chọn repository, nhánh (branch) và nhập đường dẫn file chính là `app.py`.
-5. Nhấp vào **Deploy!** Streamlit sẽ tự động cấu hình môi trường từ `requirements.txt` và khởi chạy trang web của bạn sau vài phút.
+5. **QUAN TRỌNG:** Nhấp vào nút **Advanced settings...** trước khi bấm Deploy. Tại mục **Python version**, hãy chọn **3.11** hoặc **3.10** (không dùng phiên bản mặc định quá mới như 3.14 vì TensorFlow chưa hỗ trợ).
+6. Nhấp vào **Deploy!** Streamlit sẽ tự động cấu hình môi trường từ `requirements.txt` và khởi chạy trang web của bạn sau vài phút.
+
+> [!WARNING]
+> Nếu bạn đã deploy ứng dụng và gặp lỗi `installer returned a non-zero exit code` do TensorFlow, hãy truy cập vào cài đặt ứng dụng (Settings -> Advanced settings) trên Streamlit dashboard và đổi Python version về **3.11**, sau đó bấm **Reboot app**.
