@@ -15,10 +15,17 @@ from tensorflow.keras.layers import Input, LSTM, GRU, Dense, Dropout
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras import backend as K
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
-
 # Import local modules
 from vnstock import Vnstock
-from industry_tickers import INDUSTRY_TICKERS
+try:
+    from industry_tickers import INDUSTRY_TICKERS
+except ModuleNotFoundError:
+    try:
+        from data.industry_tickers import INDUSTRY_TICKERS
+    except ModuleNotFoundError:
+        import streamlit as st
+        st.error("❌ Không tìm thấy file `industry_tickers.py` trong thư mục gốc hoặc thư mục `data/`. Vui lòng đảm bảo bạn đã đẩy (push) file `industry_tickers.py` lên kho lưu trữ GitHub của mình.")
+        st.stop()
 
 # -------------------------------------------------------------
 # CẤU HÌNH TRANG & CSS CUSTOM
